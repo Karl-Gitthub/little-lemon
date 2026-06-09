@@ -5,18 +5,16 @@ import Testimonials from './components/Testimonials';
 import About from './components/About';
 import Footer from './components/Footer';
 import Homepage from './components/Homepage';
+import Main from './components/Main';
 import BookingPage from './components/BookingPage';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <>
-      <Nav />
+       <Nav />
       <main>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/booking" element={<BookingPage />} />
-        </Routes>
+        <Main />
       </main>
       <Footer />
     </>

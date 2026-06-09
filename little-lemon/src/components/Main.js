@@ -1,12 +1,42 @@
-import React from 'react'
+import { useReducer } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Homepage from './Homepage';
+import BookingPage from './BookingPage';
+
+// add export keyword to both functions
+export const initializeTimes = () => {
+  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+};
+
+export const updateTimes = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_TIMES':
+      return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+    default:
+      return state;
+  }
+};
 
 function Main() {
-    return (
-        <main>
-            <h1>Welcome to Little Lemon</h1>
-            <p>Experience the best of Mediterranean cuisine in the heart of Chicago. Our menu features a variety of dishes made with fresh, locally sourced ingredients. Whether you're in the mood for a light salad or a hearty pasta, we have something for everyone. Join us for a memorable dining experience!</p>     
-        </main>
-    )
+  const [availableTimes, dispatch] = useReducer(
+    updateTimes,
+    initializeTimes()
+  );
+
+  return (
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route
+        path="/booking"
+        element={
+          <BookingPage
+            availableTimes={availableTimes}
+            dispatch={dispatch}
+          />
+        }
+      />
+    </Routes>
+  );
 }
 
-export default Main
+export default Main;
