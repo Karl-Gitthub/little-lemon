@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Typography */
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-family: 'Markazi Text', serif;
+  font-size: 64px;
+  font-weight: 500;
+  color: #F4CE14;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2 {
+  font-family: 'Markazi Text', serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #333333;
 }
 
-.App-link {
-  color: #61dafb;
+h3 {
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h4 {
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333333;
+}
+
+h5 {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+h6 {
+  font-family: 'Karla', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #333333;
+}
+
+p {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #333333;
+}
+
+span {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+}
+
+/* Global elements */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #495E57;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #F4CE14;
+  color: #333333;
+}
+
+button:hover {
+  background-color: #e0b800;
 }
