@@ -59,8 +59,7 @@ describe('HTML5 validation attributes', () => {
 describe('submit button disabled state', () => {
   test('submit button is disabled when form is empty', () => {
     renderForm();
-    const submitBtn = screen.getByRole('button', { name: /submit reservation/i })
-      || screen.getByDisplayValue(/make your reservation/i);
+    const submitBtn = screen.getByRole('button', { name: /submit reservation/i });
     expect(submitBtn).toBeDisabled();
   });
 
@@ -78,7 +77,7 @@ describe('submit button disabled state', () => {
       target: { value: '4' },
     });
 
-    const submitBtn = screen.getByDisplayValue(/make your reservation/i);
+    const submitBtn = screen.getByRole('button', { name: /submit reservation/i });
     expect(submitBtn).not.toBeDisabled();
   });
 });

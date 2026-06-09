@@ -1,3 +1,21 @@
+:root {
+  --color-primary: #495E57;
+  --color-secondary: #F4CE14;
+  --color-accent: #EE9972;
+  --color-light: #EDEFEE;
+  --color-dark: #333333;
+  --color-text: #333333;
+  --color-text-muted: #555555;
+  --color-white: #ffffff;
+  --font-body: 'Karla', sans-serif;
+  --font-heading: 'Markazi Text', serif;
+  --max-width: 1200px;
+  --header-height: 72px;
+  --radius: 16px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --transition: 0.2s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,5 +23,13 @@
 }
 
 body {
-  font-family: 'Karla', sans-serif;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text);
+  line-height: 1.6;
+  background-color: var(--color-white);
+}
+
+#root {
+  min-height: 100vh;
 }

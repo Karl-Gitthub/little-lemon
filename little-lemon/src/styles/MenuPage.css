@@ -1,0 +1,21 @@
+.menu-page__hero-cta {
+  margin-top: 8px;
+}
+
+.menu-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .menu-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-page__grid {
+    grid-template-columns: 1fr;
+  }
+}

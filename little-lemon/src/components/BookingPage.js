@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import BookingForm from './BookingForm';
+import PageHeader from './PageHeader';
 import '../styles/BookingPage.css';
 
 function BookingPage({ availableTimes, dispatch }) {
@@ -12,43 +13,49 @@ function BookingPage({ availableTimes, dispatch }) {
   const handleBookingSubmit = (formData) => {
     const submitted = window.submitAPI(formData);
     if (submitted) {
-      setBookings([...bookings, formData]);
+      setBookings((prev) => [...prev, formData]);
     }
   };
 
   return (
-    <>
-      <h1>Reserve a Table</h1>
+    <div className="page booking-page">
+      <PageHeader
+        title="Reservations"
+        subtitle="Book your table and enjoy an unforgettable dining experience."
+      />
+
       <BookingForm
         availableTimes={availableTimes}
         dispatch={dispatch}
-        onSubmit={handleBookingSubmit}
+        submitForm={handleBookingSubmit}
       />
 
-      <section>
+      <section className="booking-page__table" aria-label="Existing bookings">
         <h2>Existing Bookings</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Guests</th>
-              <th>Occasion</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bookings.map((booking, index) => (
-              <tr key={index}>
-                <td>{booking.date}</td>
-                <td>{booking.time}</td>
-                <td>{booking.guests}</td>
-                <td>{booking.occasion}</td>
+        <div className="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Guests</th>
+                <th scope="col">Occasion</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {bookings.map((booking, index) => (
+                <tr key={index}>
+                  <td>{booking.date}</td>
+                  <td>{booking.time}</td>
+                  <td>{booking.guests}</td>
+                  <td>{booking.occasion}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
-    </>
+    </div>
   );
 }
 

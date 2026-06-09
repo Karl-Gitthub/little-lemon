@@ -2,6 +2,10 @@ import { useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 import BookingPage from './BookingPage';
+import AboutPage from '../pages/AboutPage';
+import MenuPage from '../pages/MenuPage';
+import OrderPage from '../pages/OrderPage';
+import LoginPage from '../pages/LoginPage';
 
 export const initializeTimes = () => {
   const today = new Date();
@@ -26,6 +30,8 @@ function Main() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/menu" element={<MenuPage />} />
       <Route
         path="/booking"
         element={
@@ -35,6 +41,8 @@ function Main() {
           />
         }
       />
+      <Route path="/order" element={<OrderPage />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 }

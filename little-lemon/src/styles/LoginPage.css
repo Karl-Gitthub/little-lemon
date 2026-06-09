@@ -1,0 +1,13 @@
+.login-form {
+  display: grid;
+  max-width: 400px;
+  gap: 20px;
+  padding: 32px;
+  background-color: var(--color-light);
+  border-radius: var(--radius);
+}
+
+.login-page__success {
+  font-size: 18px;
+  color: var(--color-text-muted);
+}

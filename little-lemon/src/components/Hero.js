@@ -1,20 +1,22 @@
+import Button from './Button';
 import '../styles/Hero.css';
-import { Link } from 'react-router-dom';
 
 function Hero() {
   return (
     <section className="hero">
-      <div className="hero-text">
+      <div className="hero__inner">
+      <div className="hero__text">
         <h1>Little Lemon</h1>
         <h2>Chicago</h2>
         <p>
-          We are a family owned Mediterranean restaurant,
-          focused on traditional recipes served with a
-          modern twist.
+          We are a family owned Mediterranean restaurant, focused on
+          traditional recipes served with a modern twist.
         </p>
-        <Link to="/booking">
-          <button className="hero-btn">Reserve a Table</button>
-        </Link>
+        <Button to="/booking" variant="primary" ariaLabel="Book a table">
+          Book a Table
+        </Button>
+      </div>
+      <div className="hero__image" aria-hidden="true" />
       </div>
     </section>
   );

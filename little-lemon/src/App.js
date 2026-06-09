@@ -1,23 +1,17 @@
 import Nav from './components/Nav';
-import Hero from './components/Hero';
-import Specials from './components/Specials';
-import Testimonials from './components/Testimonials';
-import About from './components/About';
 import Footer from './components/Footer';
-import Homepage from './components/Homepage';
 import Main from './components/Main';
-import BookingPage from './components/BookingPage';
-import { Routes, Route } from 'react-router-dom';
+import './App.css';
 
 function App() {
   return (
-    <>
-       <Nav />
-      <main>
+    <div className="app">
+      <Nav />
+      <main className="app__main">
         <Main />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

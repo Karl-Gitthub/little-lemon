@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from './Button';
 
 function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [date, setDate] = useState('');
@@ -7,7 +8,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [occasion, setOccasion] = useState('Birthday');
   const [errors, setErrors] = useState({});
 
-  const today = new Date().toISOString().split('T')[0]; // e.g. "2026-06-09"
+  const today = new Date().toISOString().split('T')[0];
 
   const validate = (fields) => {
     const newErrors = {};
@@ -55,15 +56,15 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
   };
 
   return (
-    <main>
-      <form
-        onSubmit={handleSubmit}
-        style={{ display: 'grid', maxWidth: '300px', gap: '20px' }}
-        aria-label="Reservation form"
-        noValidate
-      >
-        <h2>Reserve a Table</h2>
+    <form
+      className="booking-form"
+      onSubmit={handleSubmit}
+      aria-label="Reservation form"
+      noValidate
+    >
+      <h2 className="booking-form__title">Make a Reservation</h2>
 
+      <div className="form-group">
         <label htmlFor="res-date">Choose date</label>
         <input
           type="date"
@@ -78,11 +79,13 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
           required
         />
         {errors.date && (
-          <span id="date-error" style={{ color: 'red', fontSize: '0.85rem' }}>
+          <span id="date-error" className="form-error" role="alert">
             {errors.date}
           </span>
         )}
+      </div>
 
+      <div className="form-group">
         <label htmlFor="res-time">Choose time</label>
         <select
           id="res-time"
@@ -93,10 +96,14 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
           required
         >
           {availableTimes.map((t) => (
-            <option key={t} value={t}>{t}</option>
+            <option key={t} value={t}>
+              {t}
+            </option>
           ))}
         </select>
+      </div>
 
+      <div className="form-group">
         <label htmlFor="guests">Number of guests</label>
         <input
           type="number"
@@ -112,11 +119,13 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
           required
         />
         {errors.guests && (
-          <span id="guests-error" style={{ color: 'red', fontSize: '0.85rem' }}>
+          <span id="guests-error" className="form-error" role="alert">
             {errors.guests}
           </span>
         )}
+      </div>
 
+      <div className="form-group">
         <label htmlFor="occasion">Occasion</label>
         <select
           id="occasion"
@@ -127,16 +136,17 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
           <option>Birthday</option>
           <option>Anniversary</option>
         </select>
+      </div>
 
-        <input
-          type="submit"
-          value="Make Your Reservation"
-          aria-label="Submit reservation"
-          disabled={!isFormValid()}
-          style={{ opacity: isFormValid() ? 1 : 0.5, cursor: isFormValid() ? 'pointer' : 'not-allowed' }}
-        />
-      </form>
-    </main>
+      <Button
+        type="submit"
+        variant="primary"
+        disabled={!isFormValid()}
+        ariaLabel="Submit reservation"
+      >
+        Make Your Reservation
+      </Button>
+    </form>
   );
 }
 

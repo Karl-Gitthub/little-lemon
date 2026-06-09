@@ -4,26 +4,31 @@
   align-items: center;
   gap: 40px;
   padding: 48px 40px;
-  background-color: #ffffff;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .about-text h2 {
-  font-size: 64px;
-  color: #333333;
+  font-size: clamp(40px, 6vw, 64px);
+  color: var(--color-dark);
 }
 
 .about-text h3 {
-  font-size: 40px;
-  font-family: 'Markazi Text', serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-family: var(--font-heading);
   font-weight: 400;
-  color: #333333;
+  color: var(--color-dark);
   margin-bottom: 16px;
 }
 
 .about-text p {
-  color: #555555;
+  color: var(--color-text-muted);
   max-width: 400px;
   margin-bottom: 12px;
+}
+
+.about-text .btn {
+  margin-top: 16px;
 }
 
 .about-images {
@@ -31,18 +36,31 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  max-width: 420px;
 }
 
-.about-images img {
+.about-image {
   width: 100%;
   height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
+  border-radius: var(--radius);
+}
+
+.about-image--primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+
+.about-image--secondary {
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+  margin-top: 24px;
 }
 
 @media (max-width: 768px) {
   .about-section {
     flex-direction: column;
     padding: 32px 16px;
+  }
+
+  .about-images {
+    max-width: 100%;
   }
 }
