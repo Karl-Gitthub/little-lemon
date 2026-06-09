@@ -3,15 +3,15 @@ import { Routes, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 import BookingPage from './BookingPage';
 
-// add export keyword to both functions
 export const initializeTimes = () => {
-  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+  const today = new Date();
+  return window.fetchAPI(today);
 };
 
 export const updateTimes = (state, action) => {
   switch (action.type) {
     case 'UPDATE_TIMES':
-      return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+      return window.fetchAPI(new Date(action.payload));
     default:
       return state;
   }

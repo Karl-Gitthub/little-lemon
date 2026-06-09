@@ -1,0 +1,42 @@
+.booking-page {
+  padding: 48px 40px;
+}
+
+.booking-page h1 {
+  margin-bottom: 32px;
+}
+
+.booking-page h2 {
+  margin: 48px 0 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Karla', sans-serif;
+}
+
+thead {
+  background-color: #495E57;
+  color: #ffffff;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #EDEFEE;
+}
+
+tbody tr:hover {
+  background-color: #EDEFEE;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+}
